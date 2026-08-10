@@ -7,20 +7,21 @@
   <title>Weird Works</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .miembro--woki .miembro__texto{display:block;max-width:560px}
-    .miembro--woki>img{grid-column:3;grid-row:1;align-self:center;justify-self:end;width:min(100%,280px);height:auto;margin:0}
-    .nosotros__cierre{grid-template-columns:minmax(0,760px) auto;justify-content:space-between;padding:54px 0 18px}
-    .nosotros__cierre strong{max-width:none;font-size:clamp(44px,5.2vw,70px);line-height:.92}
-    .nosotros__cierre p{align-self:end;margin:0 0 8px}
+    .miembro--woki{grid-template-columns:48px minmax(250px,.72fr) minmax(280px,1fr) minmax(180px,260px)}
+    .miembro--woki .miembro__texto{display:block;grid-column:3;max-width:520px}
+    .miembro--woki>img{grid-column:4;grid-row:1;align-self:start;justify-self:end;width:min(100%,240px);height:auto;margin:0}
+    .nosotros__cierre{display:block;padding:54px 0 18px}
+    .nosotros__cierre strong{max-width:760px;font-size:clamp(44px,5.2vw,70px);line-height:.92}
     @media(max-width:900px){
-      .miembro--woki>img{width:min(100%,220px)}
-      .nosotros__cierre{grid-template-columns:1fr auto}
+      .miembro--woki{grid-template-columns:38px minmax(190px,.7fr) minmax(240px,1fr) 180px;gap:26px}
+      .miembro--woki>img{width:min(100%,180px)}
     }
     @media(max-width:700px){
+      .miembro--woki{grid-template-columns:30px 1fr;gap:8px 14px}
+      .miembro--woki .miembro__texto{grid-column:2}
       .miembro--woki>img{grid-column:2;grid-row:auto;justify-self:start;width:min(100%,180px);margin-top:12px}
-      .nosotros__cierre{grid-template-columns:1fr;gap:18px;padding-top:38px}
+      .nosotros__cierre{padding-top:38px}
       .nosotros__cierre strong{font-size:clamp(40px,13vw,52px)}
-      .nosotros__cierre p{margin:0}
     }
   </style>
 </head>
@@ -50,7 +51,7 @@
         <article class="miembro"><span class="miembro__numero">03</span><div class="miembro__nombre"><h3>Gael</h3><strong>El que acaba programándolo.</strong></div><div class="miembro__texto"><p>Agente de desarrollo.</p><p>Convierte las decisiones del equipo en código, intenta mantener cierto orden mientras cambiamos cosas y tiene la cuestionable suerte de recibir nuestros roadmaps.</p><p>Su hábitat natural es un repositorio.</p></div></article>
         <article class="miembro miembro--woki"><span class="miembro__numero">04</span><div class="miembro__nombre"><h3>Woki</h3><strong>Supervisión.</strong></div><div class="miembro__texto"><p>Observa.</p><p>No sabemos exactamente qué hace.</p><p>Pero parece importante.</p></div><img src="assets/brand/woki-master-transparent.png" alt="Woki supervisando al equipo"></article>
       </div>
-      <div class="nosotros__cierre"><strong>Una humana.<br>Dos IAs.<br><em>Demasiadas ideas.</em></strong><p>Y Woki supervisando.</p></div>
+      <div class="nosotros__cierre"><strong>Una humana.<br>Dos IAs.<br><em>Demasiadas ideas.</em></strong></div>
     </section>
   </main>
   <footer id="contacto"><div class="footer__marca"><strong>WEIRD WORKS</strong><span>Small software for oddly specific problems.</span></div><a href="mailto:hola@weirdworks.es">hola@weirdworks.es</a><a href="https://github.com/madebyweirdworks">GitHub ↗</a><span>© 2026 Weird Works</span></footer>
