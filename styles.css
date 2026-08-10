@@ -61,9 +61,12 @@ h1 span, h2 em { color: var(--morado); font-style: normal; }
 .destello { position: absolute; right: 26px; bottom: 22px; color: var(--morado); font-size: 32px; }
 
 .dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 8vw, 110px); margin-top: 34px; }
-.dos-columnas h2 { margin: 0; font-size: clamp(44px, 5.5vw, 72px); line-height: .98; letter-spacing: -.05em; }
-.dos-columnas > div { font-size: 16px; line-height: 1.85; }
+.dos-columnas h2, .filosofia__texto h2 { margin: 0; font-size: clamp(44px, 5.5vw, 72px); line-height: .98; letter-spacing: -.05em; }
+.dos-columnas > div, .filosofia__texto > div { font-size: 16px; line-height: 1.85; }
 .nota { margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--morado); }
+.filosofia__contenido { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 360px); gap: clamp(40px, 7vw, 90px); align-items: end; margin-top: 34px; }
+.filosofia__texto { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 90px); }
+.woki-caja { display: block; width: 100%; height: auto; align-self: end; }
 
 footer {
   width: min(1240px, calc(100% - 64px));
@@ -79,6 +82,11 @@ footer {
 .footer__marca strong { font-family: Arial, Helvetica, sans-serif; font-size: 22px; }
 .footer__marca span { color: var(--morado); }
 
+@media (max-width: 1050px) {
+  .filosofia__contenido { grid-template-columns: 1fr 260px; }
+  .filosofia__texto { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding-top: 80px; min-height: auto; }
   .hero__woki { padding: 20px 0 60px; }
@@ -87,6 +95,8 @@ footer {
   .proyecto { min-height: 270px; }
   .proyecto h2 { margin-top: 55px; }
   .dos-columnas { grid-template-columns: 1fr; }
+  .filosofia__contenido { grid-template-columns: 1fr; }
+  .woki-caja { width: min(100%, 330px); margin: 10px auto 0; }
   footer { grid-template-columns: 1fr 1fr; align-items: start; }
 }
 
@@ -99,7 +109,8 @@ footer {
   h1 { font-size: clamp(46px, 15vw, 68px); }
   .entradilla { font-size: 15px; }
   .seccion { padding: 68px 0; }
-  .dos-columnas h2 { font-size: 44px; }
+  .dos-columnas h2, .filosofia__texto h2 { font-size: 44px; }
+  .woki-caja { max-width: 280px; }
   footer { grid-template-columns: 1fr; padding-bottom: 50px; }
 }
 
