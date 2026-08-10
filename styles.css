@@ -8,39 +8,15 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--papel);
-  color: var(--negro);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-}
+body { margin: 0; background: var(--papel); color: var(--negro); font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 a { color: inherit; text-decoration: none; }
-
-.cabecera {
-  position: relative;
-  width: min(1240px, calc(100% - 64px));
-  margin: 0 auto;
-  min-height: 84px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  border-bottom: 1px solid var(--linea);
-}
+.cabecera { position: relative; width: min(1240px, calc(100% - 64px)); margin: 0 auto; min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; border-bottom: 1px solid var(--linea); }
 .marca { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 900; letter-spacing: .02em; }
 .nav-escritorio { display: flex; flex-wrap: wrap; gap: 26px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
 .nav-escritorio a:hover, footer a:hover { color: var(--morado); }
 details.nav-movil { display: none !important; }
-
 main { width: min(1240px, calc(100% - 64px)); margin: 0 auto; }
-.hero {
-  min-height: 680px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
-  gap: clamp(32px, 6vw, 90px);
-  align-items: center;
-  border-bottom: 1px solid var(--linea);
-}
+.hero { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: clamp(32px, 6vw, 90px); align-items: center; border-bottom: 1px solid var(--linea); }
 .etiqueta { margin: 0; color: var(--morado); font-size: 12px; font-weight: 900; letter-spacing: .08em; }
 h1, h2, h3 { font-family: Arial, Helvetica, sans-serif; }
 h1 { max-width: 850px; margin: 22px 0 28px; font-size: clamp(54px, 7.2vw, 98px); line-height: .92; letter-spacing: -.065em; }
@@ -51,7 +27,6 @@ h1 span, h2 em { color: var(--morado); font-style: normal; }
 .hero__woki { align-self: end; padding-bottom: 75px; text-align: center; }
 .hero__woki img { display: block; width: min(100%, 410px); height: auto; margin: 0 auto; }
 .hero__woki p { margin: 8px 0 0; color: var(--morado); font-size: 12px; font-weight: 800; }
-
 .seccion { padding: 90px 0; border-bottom: 1px solid var(--linea); }
 .proyectos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
 .proyecto { position: relative; min-height: 340px; padding: 28px; background: var(--blanco); border: 1px solid var(--linea); transition: transform .15s ease, border-color .15s ease; }
@@ -61,135 +36,35 @@ h1 span, h2 em { color: var(--morado); font-style: normal; }
 .proyecto p { max-width: 34ch; line-height: 1.65; }
 .proyecto--futuro { background: var(--negro); color: var(--blanco); }
 .destello { position: absolute; right: 26px; bottom: 22px; color: var(--morado); font-size: 32px; }
-
 .dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 8vw, 110px); margin-top: 34px; }
 .dos-columnas h2 { margin: 0; font-size: clamp(44px, 5.5vw, 72px); line-height: .98; letter-spacing: -.05em; }
 .dos-columnas > div { font-size: 16px; line-height: 1.85; }
-
-/* Filosofía: manifiesto editorial, no cuadrícula de producto */
 .filosofia { overflow: hidden; }
-.filosofia__cabecera {
-  display: grid;
-  grid-template-columns: minmax(300px, .8fr) minmax(420px, 1.2fr);
-  gap: clamp(56px, 10vw, 150px);
-  margin-top: 52px;
-  padding-bottom: 96px;
-  align-items: start;
-}
+.filosofia__cabecera { display: grid; grid-template-columns: minmax(300px, .8fr) minmax(420px, 1.2fr); gap: clamp(56px, 10vw, 150px); margin-top: 52px; padding-bottom: 96px; align-items: start; }
 .filosofia__izquierda { position: relative; }
-.filosofia__izquierda h2 {
-  margin: 0;
-  font-size: clamp(48px, 5.8vw, 78px);
-  line-height: .94;
-  letter-spacing: -.055em;
-}
+.filosofia__izquierda h2 { margin: 0; font-size: clamp(48px, 5.8vw, 78px); line-height: .94; letter-spacing: -.055em; }
 .filosofia__izquierda h2 em { color: var(--morado); font-style: normal; }
-.woki-caja {
-  display: block;
-  width: min(100%, 360px);
-  max-width: 100%;
-  height: auto;
-  margin: 46px auto 0 0;
-}
-.filosofia__intro {
-  max-width: 650px;
-  padding-top: 4px;
-  font-size: 16px;
-  line-height: 1.85;
-}
+.woki-caja { display: block; width: min(100%, 360px); max-width: 100%; height: auto; margin: 46px auto 0 0; }
+.filosofia__intro { max-width: 650px; padding-top: 4px; font-size: 16px; line-height: 1.85; }
 .filosofia__intro p { max-width: 58ch; }
 .filosofia__intro p:first-child { margin-top: 0; }
-.filosofia__laboratorio {
-  max-width: 12ch !important;
-  margin-bottom: 34px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(42px, 5vw, 68px);
-  font-weight: 800;
-  line-height: .96;
-  letter-spacing: -.05em;
-}
-
-.filosofia__principios {
-  margin: 0;
-  border-top: 1px solid var(--negro);
-}
-.filosofia__principios article {
-  display: grid;
-  grid-template-columns: 54px minmax(250px, .75fr) minmax(320px, 1fr);
-  gap: clamp(24px, 5vw, 76px);
-  align-items: start;
-  min-height: 0;
-  padding: 54px 0 58px;
-  border-bottom: 1px solid var(--linea);
-}
+.filosofia__laboratorio { max-width: 12ch !important; margin-bottom: 34px; font-family: Arial, Helvetica, sans-serif; font-size: clamp(42px, 5vw, 68px); font-weight: 800; line-height: .96; letter-spacing: -.05em; }
+.filosofia__principios { margin: 0; border-top: 1px solid var(--negro); }
+.filosofia__principios article { display: grid; grid-template-columns: 54px minmax(250px, .75fr) minmax(320px, 1fr); gap: clamp(24px, 5vw, 76px); align-items: start; min-height: 0; padding: 54px 0 58px; border-bottom: 1px solid var(--linea); }
 .filosofia__principios article:nth-child(even) h3 { color: var(--morado); }
-.filosofia__principios span {
-  padding-top: 7px;
-  color: var(--morado);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .08em;
-}
-.filosofia__principios h3 {
-  max-width: 13ch;
-  margin: 0;
-  font-size: clamp(30px, 3.3vw, 46px);
-  line-height: .98;
-  letter-spacing: -.045em;
-}
-.filosofia__principios p {
-  max-width: 58ch;
-  margin: 2px 0 0;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.filosofia__cierre {
-  position: relative;
-  width: auto;
-  margin: 96px 0 0;
-  padding: clamp(42px, 6vw, 76px);
-  background: var(--negro);
-  color: var(--blanco);
-  font-size: 16px;
-  line-height: 1.8;
-}
+.filosofia__principios span { padding-top: 7px; color: var(--morado); font-size: 11px; font-weight: 900; letter-spacing: .08em; }
+.filosofia__principios h3 { max-width: 13ch; margin: 0; font-size: clamp(30px, 3.3vw, 46px); line-height: .98; letter-spacing: -.045em; }
+.filosofia__principios p { max-width: 58ch; margin: 2px 0 0; font-size: 15px; line-height: 1.8; }
+.filosofia__cierre { position: relative; width: auto; margin: 96px 0 0; padding: clamp(54px, 6vw, 76px) 0 10px; border-top: 1px solid var(--negro); background: transparent; color: var(--negro); font-size: 16px; line-height: 1.8; }
 .filosofia__cierre p { max-width: 760px; }
-.filosofia__cierre p:first-child {
-  max-width: 900px;
-  margin-top: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(28px, 3.5vw, 46px);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -.035em;
-}
-.filosofia__cierre p:first-child strong { color: #b6a6ff; }
+.filosofia__cierre p:first-child { max-width: 900px; margin-top: 0; font-family: Arial, Helvetica, sans-serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; }
+.filosofia__cierre p:first-child strong { color: var(--morado); }
 .filosofia__cierre strong { font-family: Arial, Helvetica, sans-serif; }
-.filosofia__claim {
-  display: block;
-  max-width: 900px;
-  margin-top: 62px;
-  color: #b6a6ff;
-  font-size: clamp(38px, 6vw, 76px);
-  line-height: .92;
-  letter-spacing: -.055em;
-}
-
-footer {
-  width: min(1240px, calc(100% - 64px));
-  margin: 0 auto;
-  padding: 52px 0 70px;
-  display: grid;
-  grid-template-columns: minmax(250px, 2fr) repeat(3, auto);
-  gap: 32px;
-  align-items: end;
-  font-size: 12px;
-}
+.filosofia__claim { display: block; max-width: 900px; margin-top: 62px; color: var(--morado); font-size: clamp(38px, 6vw, 76px); line-height: .92; letter-spacing: -.055em; }
+footer { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 52px 0 70px; display: grid; grid-template-columns: minmax(250px, 2fr) repeat(3, auto); gap: 32px; align-items: end; font-size: 12px; }
 .footer__marca { display: flex; flex-direction: column; gap: 8px; }
 .footer__marca strong { font-family: Arial, Helvetica, sans-serif; font-size: 22px; }
 .footer__marca span { color: var(--morado); }
-
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding-top: 80px; min-height: auto; }
   .hero__woki { padding: 20px 0 60px; }
@@ -203,7 +78,6 @@ footer {
   .filosofia__principios article { grid-template-columns: 42px minmax(210px, .8fr) 1.2fr; gap: 26px; }
   footer { grid-template-columns: 1fr 1fr; align-items: start; }
 }
-
 @media (max-width: 700px) {
   .cabecera, main, footer { width: min(100% - 36px, 1240px); }
   .cabecera { min-height: 72px; padding: 0; z-index: 20; }
@@ -230,7 +104,6 @@ footer {
   .entradilla { font-size: 15px; }
   .seccion { padding: 68px 0; }
   .dos-columnas h2 { font-size: 44px; }
-
   .filosofia__cabecera { grid-template-columns: 1fr; gap: 46px; margin-top: 34px; padding-bottom: 62px; }
   .filosofia__izquierda h2 { font-size: 46px; }
   .woki-caja { width: min(100%, 300px); margin: 30px auto 0; }
@@ -240,13 +113,12 @@ footer {
   .filosofia__principios span { grid-row: 1 / span 2; }
   .filosofia__principios h3 { max-width: 12ch; font-size: 30px; }
   .filosofia__principios p { grid-column: 2; margin-top: 14px; font-size: 14px; }
-  .filosofia__cierre { margin: 64px -18px -68px; padding: 44px 18px 54px; }
+  .filosofia__cierre { margin: 64px 0 0; padding: 42px 0 0; }
   .filosofia__cierre p:first-child { font-size: 28px; }
   .filosofia__cierre p:not(:first-child) { font-size: 14px; }
   .filosofia__claim { margin-top: 44px; font-size: 40px; }
   footer { grid-template-columns: 1fr; padding-bottom: 50px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .proyecto, .nav-movil__icono, .nav-movil__icono::before, .nav-movil__icono::after { transition: none; }
