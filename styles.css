@@ -30,7 +30,7 @@ a { color: inherit; text-decoration: none; }
 .marca { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 900; letter-spacing: .02em; }
 .nav-escritorio { display: flex; flex-wrap: wrap; gap: 26px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
 .nav-escritorio a:hover, footer a:hover { color: var(--morado); }
-.nav-movil { display: none; }
+details.nav-movil { display: none !important; }
 
 main { width: min(1240px, calc(100% - 64px)); margin: 0 auto; }
 .hero {
@@ -107,7 +107,7 @@ footer {
   .cabecera { min-height: 72px; padding: 0; z-index: 20; }
   .marca { font-size: 20px; }
   .nav-escritorio { display: none; }
-  .nav-movil { display: block; }
+  details.nav-movil { display: block !important; }
   .nav-movil summary {
     min-width: 76px;
     min-height: 48px;
@@ -122,6 +122,7 @@ footer {
     text-transform: uppercase;
   }
   .nav-movil summary::-webkit-details-marker { display: none; }
+  .nav-movil summary::marker { content: ""; }
   .nav-movil summary:focus-visible { outline: 3px solid var(--morado); outline-offset: 4px; }
   .nav-movil__icono,
   .nav-movil__icono::before,
