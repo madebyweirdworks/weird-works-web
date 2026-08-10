@@ -68,7 +68,7 @@ h1 span, h2 em { color: var(--morado); font-style: normal; }
 .nota { margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--morado); }
 .filosofia__contenido { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 360px); gap: clamp(40px, 7vw, 90px); align-items: end; margin-top: 34px; }
 .filosofia__texto { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 90px); }
-.woki-caja { display: block; width: 100%; height: auto; align-self: end; }
+.woki-caja { display: block; max-width: 100%;height: auto; align-self: end; }
 
 footer {
   width: min(1240px, calc(100% - 64px));
