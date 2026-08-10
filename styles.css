@@ -10,7 +10,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--papel); color: var(--negro); font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 a { color: inherit; text-decoration: none; }
-.cabecera { position: relative; width: min(1240px, calc(100% - 64px)); margin: 0 auto; min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; border-bottom: 1px solid var(--linea); }
+.cabecera { position: sticky; top: 0; z-index: 100; width: min(1240px, calc(100% - 64px)); margin: 0 auto; min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; border-bottom: 1px solid var(--linea); background: var(--papel); }
 .marca { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 900; letter-spacing: .02em; }
 .nav-escritorio { display: flex; flex-wrap: wrap; gap: 26px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
 .nav-escritorio a:hover, footer a:hover { color: var(--morado); }
@@ -80,7 +80,7 @@ footer { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 52px 0 
 }
 @media (max-width: 700px) {
   .cabecera, main, footer { width: min(100% - 36px, 1240px); }
-  .cabecera { min-height: 72px; padding: 0; z-index: 20; }
+  .cabecera { min-height: 72px; padding: 0; z-index: 100; }
   .marca { font-size: 20px; }
   .nav-escritorio { display: none; }
   details.nav-movil { display: block !important; }
