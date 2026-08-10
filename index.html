@@ -5,28 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Weird Works. Small software for oddly specific problems.">
   <title>Weird Works</title>
+  <link rel="icon" type="image/png" href="assets/brand/woki-master-transparent.png">
+  <link rel="apple-touch-icon" href="assets/brand/woki-master-transparent.png">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .miembro--woki{grid-template-columns:48px minmax(250px,.72fr) minmax(0,1.28fr);position:relative;min-height:390px;overflow:hidden}
-    .miembro--woki .miembro__nombre strong{display:none}
-    .miembro--woki .miembro__numero::after{content:" — SUPERVISIÓN";white-space:nowrap}
-    .miembro--woki .miembro__texto{display:block;grid-column:3;max-width:430px;padding-right:40px}
-    .miembro--woki .miembro__texto p:first-child{font-family:Arial,Helvetica,sans-serif;font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1;letter-spacing:-.035em}
-    .miembro--woki>img{position:absolute;right:0;bottom:-34px;width:min(31vw,350px);height:auto;margin:0}
+    .miembro--woki{grid-template-columns:48px minmax(250px,.72fr) minmax(0,1.28fr);position:relative;min-height:310px;overflow:hidden}
+    .miembro--woki .miembro__nombre strong{display:block}
+    .miembro--woki .miembro__texto{display:block;grid-column:3;max-width:430px;padding-right:0}
+    .miembro--woki>img{position:absolute;right:1.5%;bottom:-42px;width:min(25vw,290px);height:auto;margin:0}
     .nosotros__cierre{display:block;padding:54px 0 18px}
     .nosotros__cierre strong{max-width:760px;font-size:clamp(44px,5.2vw,70px);line-height:.92}
+    @media(max-width:1100px){
+      .miembro--woki .miembro__texto{max-width:360px}
+      .miembro--woki>img{width:min(24vw,250px)}
+    }
     @media(max-width:900px){
-      .miembro--woki{grid-template-columns:38px minmax(190px,.7fr) minmax(0,1.3fr);min-height:340px}
-      .miembro--woki .miembro__texto{padding-right:190px}
-      .miembro--woki>img{width:min(29vw,260px);bottom:-22px}
+      .miembro--woki{grid-template-columns:38px minmax(190px,.7fr) minmax(0,1.3fr);min-height:290px}
+      .miembro--woki .miembro__texto{max-width:310px;padding-right:0}
+      .miembro--woki>img{width:min(27vw,220px);bottom:-30px}
     }
     @media(max-width:700px){
       .miembro--woki{grid-template-columns:30px 1fr;gap:8px 14px;min-height:0;padding-bottom:0}
-      .miembro--woki .miembro__numero::after{content:""}
-      .miembro--woki .miembro__nombre strong{display:block}
-      .miembro--woki .miembro__texto{grid-column:2;padding-right:0}
-      .miembro--woki .miembro__texto p:first-child{font-size:28px}
-      .miembro--woki>img{position:relative;grid-column:2;right:auto;bottom:auto;justify-self:end;width:min(75%,240px);margin-top:-18px}
+      .miembro--woki .miembro__texto{grid-column:2;max-width:none;padding-right:0}
+      .miembro--woki>img{position:relative;grid-column:2;right:auto;bottom:auto;justify-self:start;width:min(70%,210px);margin-top:6px}
       .nosotros__cierre{padding-top:38px}
       .nosotros__cierre strong{font-size:clamp(40px,13vw,52px)}
     }
