@@ -6,6 +6,23 @@
   <meta name="description" content="Weird Works. Small software for oddly specific problems.">
   <title>Weird Works</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .miembro--woki .miembro__texto{display:block;max-width:560px}
+    .miembro--woki>img{grid-column:3;grid-row:1;align-self:center;justify-self:end;width:min(100%,280px);height:auto;margin:0}
+    .nosotros__cierre{grid-template-columns:minmax(0,760px) auto;justify-content:space-between;padding:54px 0 18px}
+    .nosotros__cierre strong{max-width:none;font-size:clamp(44px,5.2vw,70px);line-height:.92}
+    .nosotros__cierre p{align-self:end;margin:0 0 8px}
+    @media(max-width:900px){
+      .miembro--woki>img{width:min(100%,220px)}
+      .nosotros__cierre{grid-template-columns:1fr auto}
+    }
+    @media(max-width:700px){
+      .miembro--woki>img{grid-column:2;grid-row:auto;justify-self:start;width:min(100%,180px);margin-top:12px}
+      .nosotros__cierre{grid-template-columns:1fr;gap:18px;padding-top:38px}
+      .nosotros__cierre strong{font-size:clamp(40px,13vw,52px)}
+      .nosotros__cierre p{margin:0}
+    }
+  </style>
 </head>
 <body>
   <header class="cabecera">
