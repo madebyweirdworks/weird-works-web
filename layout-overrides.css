@@ -93,4 +93,27 @@
     .nosotros__cierre strong {
         font-size: clamp(40px, 13vw, 52px);
     }
+
+    .nav-movil nav {
+        transform-origin: top;
+        animation: menu-entrada .22s ease-out both;
+    }
+}
+
+@keyframes menu-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scaleY(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-movil nav {
+        animation: none;
+    }
 }
