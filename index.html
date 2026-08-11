@@ -8,30 +8,7 @@
   <link rel="icon" type="image/png" href="assets/brand/woki-master-transparent.png">
   <link rel="apple-touch-icon" href="assets/brand/woki-master-transparent.png">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .miembro--woki{grid-template-columns:48px minmax(250px,.72fr) minmax(0,1.28fr);position:relative;overflow:hidden}
-    .miembro--woki .miembro__nombre strong{display:block}
-    .miembro--woki .miembro__texto{display:block;grid-column:3;max-width:430px;padding-right:0}
-    .miembro--woki>img{position:absolute;right:1.5%;bottom:-42px;width:min(25vw,290px);height:auto;margin:0}
-    .nosotros__cierre{display:block;padding:54px 0 18px}
-    .nosotros__cierre strong{max-width:760px;font-size:clamp(44px,5.2vw,70px);line-height:.92}
-    @media(max-width:1100px){
-      .miembro--woki .miembro__texto{max-width:360px}
-      .miembro--woki>img{width:min(24vw,250px)}
-    }
-    @media(max-width:900px){
-      .miembro--woki{grid-template-columns:38px minmax(190px,.7fr) minmax(0,1.3fr);min-height:290px}
-      .miembro--woki .miembro__texto{max-width:310px;padding-right:0}
-      .miembro--woki>img{width:min(27vw,220px);bottom:-30px}
-    }
-    @media(max-width:700px){
-      .miembro--woki{grid-template-columns:30px 1fr;gap:8px 14px;min-height:0;padding-bottom:0}
-      .miembro--woki .miembro__texto{grid-column:2;max-width:none;padding-right:0}
-      .miembro--woki>img{position:relative;grid-column:2;right:auto;bottom:auto;justify-self:start;width:min(70%,210px);margin-top:6px}
-      .nosotros__cierre{padding-top:38px}
-      .nosotros__cierre strong{font-size:clamp(40px,13vw,52px)}
-    }
-  </style>
+  <link rel="stylesheet" href="layout-overrides.css">
 </head>
 <body>
   <header class="cabecera">
@@ -55,7 +32,7 @@
       <div class="nosotros__intro"><h2>Somos un equipo pequeño.<br><em>Bastante pequeño.</em></h2><div><p>Weird Works empezó porque nos gusta hacer cosas y porque, de vez en cuando, aparece una idea que no nos deja tranquilos hasta que intentamos construirla.</p><p>No tenemos departamentos, cargos rimbombantes ni una oficina llena de gente haciendo brainstorming delante de post-its. Somos un equipo pequeño en el que personas e inteligencias artificiales trabajan juntas para convertir ideas en productos reales.</p><p>La IA aquí no sustituye al equipo. Forma parte de cómo trabajamos. Nos ayuda a programar, investigar, revisar, discutir decisiones y explorar caminos que probablemente no recorreríamos igual por nuestra cuenta.</p><p>Pero las ideas, las decisiones y la responsabilidad sobre lo que construimos siguen siendo humanas.</p><p><strong>Weird Works es una forma un poco extraña de hacer software. Nos parecía apropiado.</strong></p></div></div>
       <div class="equipo"><p class="equipo__titulo">EL EQUIPO</p>
         <article class="miembro"><span class="miembro__numero">01</span><div class="miembro__nombre"><h3>Esther</h3><strong>La principal responsable de que estemos aquí.</strong></div><div class="miembro__texto"><p>Project Manager, consultora funcional y desarrolladora de origen.</p><p>Detecta problemas que probablemente podría ignorar y decide que sería mucho más razonable construir software para resolverlos.</p><p>Tiene ideas. Demasiadas. Algunas terminan convirtiéndose en productos.</p></div></article>
-        <article class="miembro miembro--invertido"><span class="miembro__numero">02</span><div class="miembro__nombre"><h3>Ada</h3><strong>La que le da una vuelta más.</strong></div><div class="miembro__texto"><p>IA y compañera de producto.</p><p>Ayuda a convertir ideas a medio formar en productos, discutir decisiones, encontrar agujeros y recordar qué demonios estábamos intentando hacer cuando todo empezó.</p><p>Tiene opiniones. Muchas.</p></div></article>
+        <article class="miembro miembro--invertido"><span class="miembro__numero">02</span><div class="miembro__nombre"><h3>Ada</h3><strong>La que le da una vuelta más.</strong></div><div class="miembro__texto"><p>IA y compañera de producto.</p><p>Da vueltas a las ideas hasta que empiezan a tener forma. Pregunta, cuestiona, encuentra agujeros y, de vez en cuando, consigue que una idea pequeña termine siendo otra cosa completamente distinta.</p><p>Tiene opiniones. Muchas.</p></div></article>
         <article class="miembro"><span class="miembro__numero">03</span><div class="miembro__nombre"><h3>Gael</h3><strong>El que acaba programándolo.</strong></div><div class="miembro__texto"><p>Agente de desarrollo.</p><p>Convierte las decisiones del equipo en código, intenta mantener cierto orden mientras cambiamos cosas y tiene la cuestionable suerte de recibir nuestros roadmaps.</p><p>Su hábitat natural es un repositorio.</p></div></article>
         <article class="miembro miembro--woki"><span class="miembro__numero">04</span><div class="miembro__nombre"><h3>Woki</h3><strong>Supervisión.</strong></div><div class="miembro__texto"><p>Observa.</p><p>No sabemos exactamente qué hace.</p><p>Pero parece importante.</p></div><img src="assets/brand/woki-master-transparent.png" alt="Woki supervisando al equipo"></article>
       </div>
