@@ -3,8 +3,8 @@ export async function mountWokiRig(container, options = {}) {
         src = "./woki-rigged.svg",
         gaze = true,
         blink = true,
-        blinkMin = 2600,
-        blinkMax = 6200
+        blinkMin = 2800,
+        blinkMax = 6800
     } = options;
 
     const response = await fetch(src);
@@ -20,8 +20,14 @@ export async function mountWokiRig(container, options = {}) {
     const pupilRight = container.querySelector("#pupil-right");
 
     let blinkTimer;
+    let gazeFrame;
+    let thinking = false;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
 
-    function setPupilOffset(x, y) {
+    function applyPupilOffset(x, y) {
         if (!pupilLeft || !pupilRight) return;
 
         const transform = `translate(${x}px, ${y}px)`;
@@ -29,31 +35,62 @@ export async function mountWokiRig(container, options = {}) {
         pupilRight.style.transform = transform;
     }
 
+    function animateGaze() {
+        currentX += (targetX - currentX) * 0.16;
+        currentY += (targetY - currentY) * 0.16;
+        applyPupilOffset(currentX, currentY);
+
+        if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+            gazeFrame = window.requestAnimationFrame(animateGaze);
+        } else {
+            currentX = targetX;
+            currentY = targetY;
+            applyPupilOffset(currentX, currentY);
+            gazeFrame = undefined;
+        }
+    }
+
+    function setPupilTarget(x, y) {
+        targetX = Math.max(-4.5, Math.min(4.5, x));
+        targetY = Math.max(-3.5, Math.min(3.5, y));
+
+        if (!gazeFrame) {
+            gazeFrame = window.requestAnimationFrame(animateGaze);
+        }
+    }
+
     function resetGaze() {
-        setPupilOffset(0, 0);
+        if (!thinking) {
+            setPupilTarget(0, 0);
+        }
     }
 
     function handlePointerMove(event) {
-        if (!gaze || !svg) return;
+        if (!gaze || !svg || thinking) return;
 
         const rect = svg.getBoundingClientRect();
         const cx = rect.left + rect.width * 0.5;
-        const cy = rect.top + rect.height * 0.53;
+        const cy = rect.top + rect.height * 0.54;
 
         const dx = (event.clientX - cx) / Math.max(rect.width, 1);
         const dy = (event.clientY - cy) / Math.max(rect.height, 1);
 
-        const x = Math.max(-5, Math.min(5, dx * 12));
-        const y = Math.max(-4, Math.min(4, dy * 10));
-
-        setPupilOffset(x, y);
+        setPupilTarget(dx * 10, dy * 8);
     }
 
-    function doBlink() {
+    function doBlink(doubleBlink = false) {
         container.classList.add("is-blinking");
+
         window.setTimeout(() => {
             container.classList.remove("is-blinking");
-        }, 115);
+
+            if (doubleBlink) {
+                window.setTimeout(() => {
+                    container.classList.add("is-blinking");
+                    window.setTimeout(() => container.classList.remove("is-blinking"), 95);
+                }, 125);
+            }
+        }, 105);
     }
 
     function scheduleBlink() {
@@ -61,9 +98,30 @@ export async function mountWokiRig(container, options = {}) {
 
         const delay = blinkMin + Math.random() * (blinkMax - blinkMin);
         blinkTimer = window.setTimeout(() => {
-            doBlink();
+            doBlink(Math.random() < 0.2);
             scheduleBlink();
         }, delay);
+    }
+
+    function triggerPeek() {
+        container.classList.remove("is-peeking");
+        void container.offsetWidth;
+        container.classList.add("is-peeking");
+
+        window.setTimeout(() => {
+            container.classList.remove("is-peeking");
+        }, 820);
+    }
+
+    function setThinking(active = true) {
+        thinking = active;
+        container.classList.toggle("is-thinking", active);
+
+        if (active) {
+            setPupilTarget(3, -3.5);
+        } else {
+            resetGaze();
+        }
     }
 
     if (gaze) {
@@ -73,38 +131,31 @@ export async function mountWokiRig(container, options = {}) {
 
     scheduleBlink();
 
-    const api = {
-        blink: doBlink,
-
-        peek() {
-            container.classList.remove("is-peeking");
-            void container.offsetWidth;
-            container.classList.add("is-peeking");
-        },
-
-        think(active = true) {
-            container.classList.toggle("is-thinking", active);
-        },
+    return {
+        blink: () => doBlink(false),
+        peek: triggerPeek,
+        think: setThinking,
 
         lookAt(x = 0, y = 0) {
-            setPupilOffset(
-                Math.max(-5, Math.min(5, x)),
-                Math.max(-4, Math.min(4, y))
-            );
+            setPupilTarget(x, y);
         },
 
         reset() {
+            thinking = false;
             container.classList.remove("is-thinking", "is-peeking", "is-blinking");
-            resetGaze();
+            setPupilTarget(0, 0);
         },
 
         destroy() {
             window.clearTimeout(blinkTimer);
+
+            if (gazeFrame) {
+                window.cancelAnimationFrame(gazeFrame);
+            }
+
             window.removeEventListener("pointermove", handlePointerMove);
             container.innerHTML = "";
             container.classList.remove("woki-stage");
         }
     };
-
-    return api;
 }
