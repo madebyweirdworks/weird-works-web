@@ -19,10 +19,29 @@ export async function mountWokiRig(container, options = {}) {
     const pupilLeft = container.querySelector("#pupil-left");
     const pupilRight = container.querySelector("#pupil-right");
 
+    replaceRasterPupil(pupilLeft, 165, 185);
+    replaceRasterPupil(pupilRight, 235, 185);
+
     let blinkTimer;
+
+    function replaceRasterPupil(group, cx, cy) {
+        if (!group) return;
+
+        group.replaceChildren();
+
+        const pupil = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        pupil.setAttribute("cx", cx);
+        pupil.setAttribute("cy", cy);
+        pupil.setAttribute("r", "8");
+        pupil.setAttribute("fill", "#050505");
+        pupil.setAttribute("class", "pupil-shape");
+
+        group.appendChild(pupil);
+    }
 
     function setPupilOffset(x, y) {
         if (!pupilLeft || !pupilRight) return;
+
         const transform = `translate(${x}px, ${y}px)`;
         pupilLeft.style.transform = transform;
         pupilRight.style.transform = transform;
