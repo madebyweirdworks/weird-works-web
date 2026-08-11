@@ -18,13 +18,33 @@
 .miembro--woki .woki-team-rig {
     position: absolute;
     right: 1.5%;
-    bottom: -18px;
+    bottom: 0;
     width: min(25vw, 290px);
+    aspect-ratio: 400 / 230;
+    overflow: hidden;
     margin: 0;
+}
+
+.miembro--woki .woki-team-rig::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    height: 2px;
+    background: #111;
+    z-index: 3;
 }
 
 .miembro--woki .woki-team-rig .woki-stage {
     width: 100%;
+    transform: translateY(8px);
+}
+
+.miembro--woki .woki-team-rig svg {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .nosotros__cierre {
@@ -61,7 +81,6 @@
 
     .miembro--woki .woki-team-rig {
         width: min(27vw, 220px);
-        bottom: -12px;
     }
 }
 
@@ -70,7 +89,7 @@
         grid-template-columns: 30px 1fr;
         gap: 8px 14px;
         min-height: 0;
-        padding-bottom: 0;
+        padding-bottom: 18px;
     }
 
     .miembro--woki .miembro__texto {
@@ -85,8 +104,12 @@
         right: auto;
         bottom: auto;
         justify-self: start;
-        width: min(70%, 210px);
-        margin-top: 6px;
+        width: min(78%, 240px);
+        margin-top: -6px;
+    }
+
+    .miembro--woki .woki-team-rig .woki-stage {
+        transform: translateY(6px);
     }
 
     .nosotros__cierre {
