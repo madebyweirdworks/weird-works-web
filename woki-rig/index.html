@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Laboratorio de animación de Woki.">
+    <title>Woki Rig Lab · Weird Works</title>
+    <link rel="stylesheet" href="woki-rig.css">
+</head>
+<body>
+    <main class="demo-shell">
+        <header class="demo-header">
+            <span>WEIRD WORKS / WOKI RIG LAB</span>
+            <strong>Prueba de animación</strong>
+        </header>
+
+        <section class="demo-stage" aria-label="Laboratorio de animación de Woki">
+            <div id="woki-demo" aria-label="Woki animado"></div>
+        </section>
+
+        <div class="controls" aria-label="Controles de Woki">
+            <button type="button" data-action="blink">Parpadea</button>
+            <button type="button" data-action="peek">Asómate</button>
+            <button type="button" data-action="think">Pensando</button>
+            <button type="button" data-action="reset">Reset</button>
+        </div>
+
+        <p class="demo-note">Mueve el cursor para probar la mirada.</p>
+    </main>
+
+    <script type="module">
+        import { mountWokiRig } from "./woki-rig.js";
+
+        const container = document.querySelector("#woki-demo");
+        const woki = await mountWokiRig(container);
+        let thinking = false;
+
+        document.querySelector('[data-action="blink"]').addEventListener("click", () => woki.blink());
+        document.querySelector('[data-action="peek"]').addEventListener("click", () => woki.peek());
+        document.querySelector('[data-action="think"]').addEventListener("click", () => {
+            thinking = !thinking;
+            woki.think(thinking);
+        });
+        document.querySelector('[data-action="reset"]').addEventListener("click", () => {
+            thinking = false;
+            woki.reset();
+        });
+    </script>
+</body>
+</html>
