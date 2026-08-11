@@ -9,176 +9,183 @@
     overflow: visible;
 }
 
-.woki-stage .rig-part {
+.woki-stage .rig-part,
+.woki-stage #pupil-left,
+.woki-stage #pupil-right {
     transform-box: fill-box;
 }
 
 .woki-stage #body {
     transform-origin: 50% 100%;
-    animation: woki-breathe 3.8s ease-in-out infinite;
+    animation: woki-breathe 4.8s ease-in-out infinite;
+}
+
+.woki-stage #antenna-left,
+.woki-stage #antenna-right {
+    transform-origin: 50% 92%;
 }
 
 .woki-stage #antenna-left {
-    transform-origin: 50% 92%;
-    animation: woki-antenna-left 4.7s ease-in-out infinite;
+    animation: woki-antenna-left 6.4s ease-in-out infinite;
 }
 
 .woki-stage #antenna-right {
-    transform-origin: 50% 92%;
-    animation: woki-antenna-right 5.1s ease-in-out infinite;
+    animation: woki-antenna-right 7.1s ease-in-out infinite;
 }
 
 .woki-stage #heart {
-    transform-origin: 50% 50%;
-    animation: woki-heart 3.2s ease-in-out infinite;
+    transform-origin: 50% 55%;
+    animation: woki-heart 3.6s ease-in-out infinite;
 }
 
 .woki-stage #spark-1,
 .woki-stage #spark-2 {
+    transform-origin: 50% 50%;
     animation: woki-spark 2.8s ease-in-out infinite alternate;
 }
 
 .woki-stage #spark-2 {
-    animation-delay: .8s;
-}
-
-.woki-stage.is-blinking #eye-left,
-.woki-stage.is-blinking #eye-right,
-.woki-stage.is-blinking #pupil-left,
-.woki-stage.is-blinking #pupil-right {
-    transform: scaleY(.08);
+    animation-delay: .9s;
 }
 
 .woki-stage #eye-left,
 .woki-stage #eye-right,
 .woki-stage #pupil-left,
 .woki-stage #pupil-right {
-    transition: transform 90ms ease-out;
+    transform-origin: 50% 50%;
+    transition: transform 110ms ease-out;
 }
 
-/*
- * ASÓMATE
- * Woki baja primero como si se escondiera y después vuelve a aparecer
- * con un pequeño rebote. Aplicamos la misma transformación a todas las
- * piezas porque el SVG está riggeado por partes independientes.
- */
-.woki-stage.is-peeking .rig-part {
-    animation: woki-peek .72s cubic-bezier(.22, .8, .24, 1) both !important;
+.woki-stage.is-blinking #eye-left,
+.woki-stage.is-blinking #eye-right,
+.woki-stage.is-blinking #pupil-left,
+.woki-stage.is-blinking #pupil-right {
+    transform: scaleY(.06);
 }
 
-/*
- * PENSANDO
- * Estado claramente distinto del idle: cuerpo inclinado, antenas inquietas,
- * manos con un gesto sutil y mirada fija hacia arriba a la derecha.
- */
+.woki-stage.is-peeking #body,
+.woki-stage.is-peeking #eyes,
+.woki-stage.is-peeking #pupils,
+.woki-stage.is-peeking #hands {
+    animation: woki-peek-main .62s cubic-bezier(.2, .86, .28, 1.18) both !important;
+}
+
+.woki-stage.is-peeking #antenna-left {
+    animation: woki-peek-antenna-left .74s cubic-bezier(.2, .86, .28, 1.18) both !important;
+}
+
+.woki-stage.is-peeking #antenna-right {
+    animation: woki-peek-antenna-right .78s cubic-bezier(.2, .86, .28, 1.18) both !important;
+}
+
 .woki-stage.is-thinking #body {
-    animation: woki-think-body 1.8s ease-in-out infinite !important;
+    animation: woki-think-body 2.7s ease-in-out infinite !important;
 }
 
 .woki-stage.is-thinking #antenna-left {
-    animation: woki-think-antenna-left .72s ease-in-out infinite alternate !important;
+    animation: woki-think-antenna-left 2.1s ease-in-out infinite alternate !important;
 }
 
 .woki-stage.is-thinking #antenna-right {
-    animation: woki-think-antenna-right .72s ease-in-out infinite alternate !important;
+    animation: woki-think-antenna-right 2.5s ease-in-out infinite alternate !important;
 }
 
 .woki-stage.is-thinking #hand-left {
-    animation: woki-think-hand-left 1.8s ease-in-out infinite !important;
+    animation: woki-think-hand-left 2.7s ease-in-out infinite !important;
 }
 
 .woki-stage.is-thinking #hand-right {
-    animation: woki-think-hand-right 1.8s ease-in-out infinite !important;
+    animation: woki-think-hand-right 2.7s ease-in-out infinite !important;
 }
 
 .woki-stage.is-thinking #pupil-left,
 .woki-stage.is-thinking #pupil-right {
-    animation: woki-think-look 1.8s ease-in-out infinite alternate !important;
+    transform: translate(3px, -4px) !important;
 }
 
 @keyframes woki-breathe {
     0%, 100% {
-        transform: scaleY(1) translateY(0);
+        transform: translateY(0) scaleY(1);
     }
 
     50% {
-        transform: scaleY(1.018) translateY(-1px);
+        transform: translateY(-1px) scaleY(1.008);
     }
 }
 
 @keyframes woki-antenna-left {
-    0%, 76%, 100% {
-        transform: rotate(0deg);
-    }
-
-    82% {
-        transform: rotate(-3deg);
-    }
-
-    88% {
-        transform: rotate(2deg);
-    }
-
-    94% {
-        transform: rotate(-1deg);
-    }
-}
-
-@keyframes woki-antenna-right {
     0%, 72%, 100% {
         transform: rotate(0deg);
     }
 
     79% {
-        transform: rotate(3deg);
+        transform: rotate(-2.2deg);
     }
 
     86% {
-        transform: rotate(-2deg);
+        transform: rotate(1.4deg);
     }
 
-    93% {
-        transform: rotate(1deg);
+    92% {
+        transform: rotate(-.6deg);
+    }
+}
+
+@keyframes woki-antenna-right {
+    0%, 68%, 100% {
+        transform: rotate(0deg);
+    }
+
+    76% {
+        transform: rotate(2deg);
+    }
+
+    84% {
+        transform: rotate(-1.2deg);
+    }
+
+    91% {
+        transform: rotate(.5deg);
     }
 }
 
 @keyframes woki-heart {
     0%, 100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg) scale(1);
     }
 
     50% {
-        transform: translateY(-3px) rotate(-1deg);
+        transform: translateY(-2px) rotate(-1deg) scale(1.015);
     }
 }
 
 @keyframes woki-spark {
     from {
-        opacity: .6;
-        transform: scale(.96);
+        opacity: .62;
+        transform: scale(.94);
     }
 
     to {
         opacity: 1;
-        transform: scale(1.04);
+        transform: scale(1.05);
     }
 }
 
-@keyframes woki-peek {
+@keyframes woki-peek-main {
     0% {
         transform: translateY(0);
     }
 
-    34% {
-        transform: translateY(54px);
+    28% {
+        transform: translateY(15px);
     }
 
-    68% {
-        transform: translateY(-8px);
+    62% {
+        transform: translateY(-5px);
     }
 
-    84% {
-        transform: translateY(3px);
+    82% {
+        transform: translateY(2px);
     }
 
     100% {
@@ -186,33 +193,69 @@
     }
 }
 
+@keyframes woki-peek-antenna-left {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    30% {
+        transform: translateY(11px) rotate(-3deg);
+    }
+
+    66% {
+        transform: translateY(-4px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes woki-peek-antenna-right {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    32% {
+        transform: translateY(11px) rotate(3deg);
+    }
+
+    68% {
+        transform: translateY(-4px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
 @keyframes woki-think-body {
     0%, 100% {
-        transform: translateY(0) rotate(-1deg);
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-4px) rotate(1.5deg);
+        transform: translateY(-1px) rotate(-.45deg);
     }
 }
 
 @keyframes woki-think-antenna-left {
     from {
-        transform: rotate(-8deg);
+        transform: rotate(-2.5deg);
     }
 
     to {
-        transform: rotate(5deg);
+        transform: rotate(1deg);
     }
 }
 
 @keyframes woki-think-antenna-right {
     from {
-        transform: rotate(8deg);
+        transform: rotate(1.5deg);
     }
 
     to {
-        transform: rotate(-5deg);
+        transform: rotate(-3deg);
     }
 }
 
@@ -222,7 +265,7 @@
     }
 
     50% {
-        transform: translate(7px, -7px) rotate(8deg);
+        transform: translate(3px, -2px) rotate(3deg);
     }
 }
 
@@ -232,17 +275,7 @@
     }
 
     50% {
-        transform: translate(-5px, -3px) rotate(-5deg);
-    }
-}
-
-@keyframes woki-think-look {
-    from {
-        transform: translate(3px, -3px);
-    }
-
-    to {
-        transform: translate(5px, -5px);
+        transform: translate(-2px, -1px) rotate(-2deg);
     }
 }
 
@@ -252,82 +285,5 @@
     .woki-stage *::after {
         animation: none !important;
         transition: none !important;
-    }
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: #f8f7f3;
-    color: #111;
-    font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-}
-
-.demo-shell {
-    width: min(92vw, 760px);
-    margin: 0 auto;
-    padding: 32px 0 48px;
-}
-
-.demo-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #d9d6cf;
-    font-size: 12px;
-}
-
-.demo-header strong {
-    color: #7c4dff;
-}
-
-.demo-stage {
-    min-height: 560px;
-    display: grid;
-    place-items: center;
-}
-
-.controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 18px;
-    border-top: 1px solid #d9d6cf;
-}
-
-button {
-    padding: 10px 14px;
-    border: 1px solid #111;
-    background: #fff;
-    color: #111;
-    cursor: pointer;
-    font: inherit;
-}
-
-button:hover,
-button:focus-visible {
-    border-color: #7c4dff;
-    color: #7c4dff;
-}
-
-.demo-note {
-    margin: 14px 0 0;
-    color: #7c4dff;
-    font-size: 12px;
-}
-
-@media (max-width: 640px) {
-    .demo-header {
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .demo-stage {
-        min-height: 460px;
-    }
-
-    .controls button {
-        flex: 1 1 calc(50% - 8px);
     }
 }
