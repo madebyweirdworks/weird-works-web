@@ -1,0 +1,208 @@
+.woki-stage {
+    width: min(100%, 420px);
+}
+
+.woki-stage svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.woki-stage .rig-part {
+    transform-box: fill-box;
+}
+
+.woki-stage #body {
+    transform-origin: 50% 100%;
+    animation: woki-breathe 3.8s ease-in-out infinite;
+}
+
+.woki-stage #antenna-left {
+    transform-origin: 50% 92%;
+    animation: woki-antenna-left 4.7s ease-in-out infinite;
+}
+
+.woki-stage #antenna-right {
+    transform-origin: 50% 92%;
+    animation: woki-antenna-right 5.1s ease-in-out infinite;
+}
+
+.woki-stage #heart {
+    transform-origin: 50% 50%;
+    animation: woki-heart 3.2s ease-in-out infinite;
+}
+
+.woki-stage #spark-1,
+.woki-stage #spark-2 {
+    animation: woki-spark 2.8s ease-in-out infinite alternate;
+}
+
+.woki-stage #spark-2 {
+    animation-delay: .8s;
+}
+
+.woki-stage.is-blinking #eye-left,
+.woki-stage.is-blinking #eye-right,
+.woki-stage.is-blinking #pupil-left,
+.woki-stage.is-blinking #pupil-right {
+    transform: scaleY(.08);
+}
+
+.woki-stage #eye-left,
+.woki-stage #eye-right,
+.woki-stage #pupil-left,
+.woki-stage #pupil-right {
+    transition: transform 90ms ease-out;
+}
+
+.woki-stage.is-peeking #woki {
+    animation: woki-peek .55s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.woki-stage.is-thinking #body {
+    animation: woki-think-body 1.5s ease-in-out infinite;
+}
+
+.woki-stage.is-thinking #antenna-left {
+    animation: woki-think-antenna-left .9s ease-in-out infinite alternate;
+}
+
+.woki-stage.is-thinking #antenna-right {
+    animation: woki-think-antenna-right .9s ease-in-out infinite alternate;
+}
+
+@keyframes woki-breathe {
+    0%, 100% { transform: scaleY(1) translateY(0); }
+    50% { transform: scaleY(1.018) translateY(-1px); }
+}
+
+@keyframes woki-antenna-left {
+    0%, 76%, 100% { transform: rotate(0deg); }
+    82% { transform: rotate(-3deg); }
+    88% { transform: rotate(2deg); }
+    94% { transform: rotate(-1deg); }
+}
+
+@keyframes woki-antenna-right {
+    0%, 72%, 100% { transform: rotate(0deg); }
+    79% { transform: rotate(3deg); }
+    86% { transform: rotate(-2deg); }
+    93% { transform: rotate(1deg); }
+}
+
+@keyframes woki-heart {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+@keyframes woki-spark {
+    from { opacity: .6; transform: scale(.96); }
+    to { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes woki-peek {
+    from { transform: translateY(42px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes woki-think-body {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-1px) rotate(-.5deg); }
+}
+
+@keyframes woki-think-antenna-left {
+    from { transform: rotate(-4deg); }
+    to { transform: rotate(3deg); }
+}
+
+@keyframes woki-think-antenna-right {
+    from { transform: rotate(4deg); }
+    to { transform: rotate(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .woki-stage *,
+    .woki-stage *::before,
+    .woki-stage *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f8f7f3;
+    color: #111;
+    font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.demo-shell {
+    width: min(92vw, 760px);
+    margin: 0 auto;
+    padding: 32px 0 48px;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #d9d6cf;
+    font-size: 12px;
+}
+
+.demo-header strong {
+    color: #7c4dff;
+}
+
+.demo-stage {
+    min-height: 560px;
+    display: grid;
+    place-items: center;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 18px;
+    border-top: 1px solid #d9d6cf;
+}
+
+button {
+    padding: 10px 14px;
+    border: 1px solid #111;
+    background: #fff;
+    color: #111;
+    cursor: pointer;
+    font: inherit;
+}
+
+button:hover,
+button:focus-visible {
+    border-color: #7c4dff;
+    color: #7c4dff;
+}
+
+.demo-note {
+    margin: 14px 0 0;
+    color: #7c4dff;
+    font-size: 12px;
+}
+
+@media (max-width: 640px) {
+    .demo-header {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .demo-stage {
+        min-height: 460px;
+    }
+
+    .controls button {
+        flex: 1 1 calc(50% - 8px);
+    }
+}
