@@ -7,8 +7,17 @@ if (container) {
         src: "./woki-rig/woki-rigged.svg",
         gaze: true,
         blink: true
-    }).catch((error) => {
-        console.error("No se pudo cargar Woki en la landing.", error);
-        container.hidden = true;
-    });
+    })
+        .then(() => {
+            const svg = container.querySelector("svg");
+
+            if (svg) {
+                svg.setAttribute("viewBox", "0 0 400 225");
+                svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+            }
+        })
+        .catch((error) => {
+            console.error("No se pudo cargar Woki en la landing.", error);
+            container.hidden = true;
+        });
 }
