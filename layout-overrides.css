@@ -15,13 +15,16 @@
     padding-right: 0;
 }
 
-.miembro--woki > img {
+.miembro--woki .woki-team-rig {
     position: absolute;
     right: 1.5%;
-    bottom: -42px;
+    bottom: -18px;
     width: min(25vw, 290px);
-    height: auto;
     margin: 0;
+}
+
+.miembro--woki .woki-team-rig .woki-stage {
+    width: 100%;
 }
 
 .nosotros__cierre {
@@ -40,7 +43,7 @@
         max-width: 360px;
     }
 
-    .miembro--woki > img {
+    .miembro--woki .woki-team-rig {
         width: min(24vw, 250px);
     }
 }
@@ -56,9 +59,9 @@
         padding-right: 0;
     }
 
-    .miembro--woki > img {
+    .miembro--woki .woki-team-rig {
         width: min(27vw, 220px);
-        bottom: -30px;
+        bottom: -12px;
     }
 }
 
@@ -76,7 +79,7 @@
         padding-right: 0;
     }
 
-    .miembro--woki > img {
+    .miembro--woki .woki-team-rig {
         position: relative;
         grid-column: 2;
         right: auto;
