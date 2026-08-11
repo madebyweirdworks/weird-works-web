@@ -16,47 +16,10 @@ export async function mountWokiRig(container, options = {}) {
     container.classList.add("woki-stage");
 
     const svg = container.querySelector("svg");
-    const eyeLeft = container.querySelector("#eye-left");
-    const eyeRight = container.querySelector("#eye-right");
     const pupilLeft = container.querySelector("#pupil-left");
     const pupilRight = container.querySelector("#pupil-right");
 
-    replaceRasterEye(eyeLeft, 165, 185);
-    replaceRasterEye(eyeRight, 235, 185);
-    replaceRasterPupil(pupilLeft, 165, 185);
-    replaceRasterPupil(pupilRight, 235, 185);
-
     let blinkTimer;
-
-    function replaceRasterEye(group, cx, cy) {
-        if (!group) return;
-
-        group.replaceChildren();
-
-        const eye = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        eye.setAttribute("cx", cx);
-        eye.setAttribute("cy", cy);
-        eye.setAttribute("r", "26");
-        eye.setAttribute("fill", "#ffffff");
-        eye.setAttribute("class", "eye-shape");
-
-        group.appendChild(eye);
-    }
-
-    function replaceRasterPupil(group, cx, cy) {
-        if (!group) return;
-
-        group.replaceChildren();
-
-        const pupil = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        pupil.setAttribute("cx", cx);
-        pupil.setAttribute("cy", cy);
-        pupil.setAttribute("r", "8");
-        pupil.setAttribute("fill", "#050505");
-        pupil.setAttribute("class", "pupil-shape");
-
-        group.appendChild(pupil);
-    }
 
     function setPupilOffset(x, y) {
         if (!pupilLeft || !pupilRight) return;
