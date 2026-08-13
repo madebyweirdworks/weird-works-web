@@ -4,137 +4,90 @@
     overflow: hidden;
 }
 
-.miembro--woki .miembro__nombre strong {
-    display: block;
-}
-
-.miembro--woki .miembro__texto {
-    display: block;
-    grid-column: 3;
-    max-width: 430px;
-    padding-right: 0;
-}
-
-.miembro--woki .woki-team-rig {
-    position: absolute;
-    right: 1.5%;
-    bottom: 23px;
-    width: min(25vw, 290px);
-    margin: 0;
-    padding-bottom: 2px;
-}
-
-.miembro--woki .woki-team-rig::after {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    bottom: 0;
-    height: 2px;
-    background: #111;
-    z-index: -1;
-}
-
-.miembro--woki .woki-team-rig .woki-stage {
-    width: 100%;
-}
-
-.miembro--woki .woki-team-rig svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-bottom: -2px;
-}
-
-.nosotros__cierre {
-    display: block;
-    padding: 54px 0 18px;
-}
-
-.nosotros__cierre strong {
-    max-width: 760px;
-    font-size: clamp(44px, 5.2vw, 70px);
-    line-height: .92;
-}
+.miembro--woki .miembro__nombre strong { display: block; }
+.miembro--woki .miembro__texto { display: block; grid-column: 3; max-width: 430px; padding-right: 0; }
+.miembro--woki .woki-team-rig { position: absolute; right: 1.5%; bottom: 23px; width: min(25vw, 290px); margin: 0; padding-bottom: 2px; }
+.miembro--woki .woki-team-rig::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: 0; height: 2px; background: #111; z-index: -1; }
+.miembro--woki .woki-team-rig .woki-stage { width: 100%; }
+.miembro--woki .woki-team-rig svg { display: block; width: 100%; height: auto; margin-bottom: -2px; }
+.nosotros__cierre { display: block; padding: 54px 0 18px; }
+.nosotros__cierre strong { max-width: 760px; font-size: clamp(44px, 5.2vw, 70px); line-height: .92; }
 
 @media (max-width: 1100px) {
-    .miembro--woki .miembro__texto {
-        max-width: 360px;
-    }
-
-    .miembro--woki .woki-team-rig {
-        width: min(24vw, 250px);
-    }
+    .miembro--woki .miembro__texto { max-width: 360px; }
+    .miembro--woki .woki-team-rig { width: min(24vw, 250px); }
 }
 
 @media (max-width: 900px) {
-    .miembro--woki {
-        grid-template-columns: 38px minmax(190px, .7fr) minmax(0, 1.3fr);
-        min-height: 290px;
-    }
-
-    .miembro--woki .miembro__texto {
-        max-width: 310px;
-        padding-right: 0;
-    }
-
-    .miembro--woki .woki-team-rig {
-        width: min(27vw, 220px);
-    }
+    .miembro--woki { grid-template-columns: 38px minmax(190px, .7fr) minmax(0, 1.3fr); min-height: 290px; }
+    .miembro--woki .miembro__texto { max-width: 310px; padding-right: 0; }
+    .miembro--woki .woki-team-rig { width: min(27vw, 220px); }
 }
 
 @media (max-width: 700px) {
-    .miembro--woki {
-        grid-template-columns: 30px 1fr;
-        gap: 8px 14px;
-        min-height: 0;
-        padding-bottom: 18px;
-    }
-
-    .miembro--woki .miembro__texto {
-        grid-column: 2;
-        max-width: none;
-        padding-right: 0;
-    }
-
-    .miembro--woki .woki-team-rig {
-        position: relative;
-        grid-column: 2;
-        right: auto;
-        bottom: auto;
-        justify-self: start;
-        width: min(82%, 260px);
-        margin-top: 2px;
-    }
-
-    .nosotros__cierre {
-        padding-top: 38px;
-    }
-
-    .nosotros__cierre strong {
-        font-size: clamp(40px, 13vw, 52px);
-    }
-
-    .nav-movil nav {
-        transform-origin: top;
-        animation: menu-entrada .22s ease-out both;
-    }
+    .cabecera, main, footer { width: min(100% - 36px, 1240px); }
+    .cabecera { min-height: 72px; padding: 0; z-index: 100; }
+    .marca { font-size: 20px; }
+    .nav-escritorio { display: none; }
+    details.nav-movil { display: block !important; }
+    .nav-movil summary { min-width: 76px; min-height: 48px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; cursor: pointer; list-style: none; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .nav-movil summary::-webkit-details-marker { display: none; }
+    .nav-movil summary::marker { content: ""; }
+    .nav-movil summary:focus-visible { outline: 3px solid var(--morado); outline-offset: 4px; }
+    .nav-movil__icono, .nav-movil__icono::before, .nav-movil__icono::after { display: block; width: 22px; height: 2px; background: var(--negro); content: ""; transition: transform .18s ease; }
+    .nav-movil__icono { position: relative; }
+    .nav-movil__icono::before { position: absolute; top: -7px; }
+    .nav-movil__icono::after { position: absolute; top: 7px; }
+    .nav-movil[open] .nav-movil__icono { background: transparent; }
+    .nav-movil[open] .nav-movil__icono::before { top: 0; transform: rotate(45deg); }
+    .nav-movil[open] .nav-movil__icono::after { top: 0; transform: rotate(-45deg); }
+    .nav-movil nav { position: absolute; top: 72px; left: -18px; width: calc(100% + 36px); padding: 10px 18px 22px; background: var(--papel); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--negro); box-shadow: 0 14px 30px rgba(17,17,17,.08); transform-origin: top; animation: menu-entrada .22s ease-out both; }
+    .nav-movil nav a { min-height: 62px; display: flex; align-items: center; gap: 18px; border-bottom: 1px solid var(--linea); font-family: Arial,Helvetica,sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+    .nav-movil nav a:last-child { border-bottom: 0; }
+    .nav-movil nav a span { min-width: 24px; color: var(--morado); font-family: ui-monospace,monospace; font-size: 10px; letter-spacing: .08em; }
+    .nav-movil nav a:active { color: var(--morado); }
+    h1 { font-size: clamp(46px,15vw,68px); }
+    .entradilla { font-size: 15px; }
+    .seccion { padding: 68px 0; }
+    .dos-columnas h2 { font-size: 44px; }
+    .filosofia__cabecera { grid-template-columns: 1fr; gap: 46px; margin-top: 34px; padding-bottom: 62px; }
+    .filosofia__izquierda h2 { font-size: 46px; }
+    .woki-caja { width: min(100%,300px); margin: 30px auto 0; }
+    .filosofia__intro { font-size: 15px; }
+    .filosofia__laboratorio { max-width: 11ch !important; font-size: 40px; }
+    .filosofia__principios article { grid-template-columns: 34px 1fr; gap: 10px 16px; padding: 38px 0 42px; }
+    .filosofia__principios span { grid-row: 1 / span 2; }
+    .filosofia__principios h3 { max-width: 12ch; font-size: 30px; }
+    .filosofia__principios p { grid-column: 2; margin-top: 14px; font-size: 14px; }
+    .filosofia__cierre { margin: 64px 0 0; padding: 42px 0 0; }
+    .filosofia__cierre p:first-child { font-size: 28px; }
+    .filosofia__cierre p:not(:first-child) { font-size: 14px; }
+    .filosofia__claim { margin-top: 44px; font-size: 40px; }
+    .nosotros__intro { grid-template-columns: 1fr; gap: 34px; margin-top: 34px; padding-bottom: 58px; }
+    .nosotros__intro h2 { font-size: 46px; }
+    .nosotros__intro > div { font-size: 14px; }
+    .equipo__titulo { padding: 22px 0 26px; }
+    .miembro, .miembro--woki { grid-template-columns: 30px 1fr; gap: 8px 14px; min-height: 0; padding: 34px 0 40px; }
+    .miembro__numero { grid-row: 1 / span 3; }
+    .miembro__nombre, .miembro--invertido .miembro__nombre { grid-column: 2; grid-row: auto; }
+    .miembro__nombre h3 { font-size: 40px; }
+    .miembro__nombre strong { font-size: 16px; }
+    .miembro__texto, .miembro--invertido .miembro__texto, .miembro--woki .miembro__texto { display: block; grid-column: 2; grid-row: auto; max-width: none; padding-right: 0; font-size: 14px; }
+    .miembro--woki .woki-team-rig { position: relative; grid-column: 2; right: auto; bottom: auto; justify-self: start; width: min(82%,260px); margin-top: 2px; }
+    .miembro--woki img { width: min(100%,190px); margin: 24px auto 0; }
+    .nosotros__cierre { display: block; margin-top: 0; padding: 42px 0 18px; }
+    .nosotros__cierre strong { font-size: clamp(40px,13vw,52px); }
+    .nosotros__cierre p { margin: 0; }
+    footer { grid-template-columns: 1fr; padding-bottom: 50px; }
 }
 
 @keyframes menu-entrada {
-    from {
-        opacity: 0;
-        transform: translateY(-8px) scaleY(.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scaleY(1);
-    }
+    from { opacity: 0; transform: translateY(-8px) scaleY(.97); }
+    to { opacity: 1; transform: translateY(0) scaleY(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .nav-movil nav {
-        animation: none;
-    }
+    html { scroll-behavior: auto; }
+    .proyecto, .nav-movil__icono, .nav-movil__icono::before, .nav-movil__icono::after { transition: none; }
+    .nav-movil nav { animation: none; }
 }
