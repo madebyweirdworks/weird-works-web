@@ -13,7 +13,6 @@
 .nosotros__cierre { display: block; padding: 54px 0 18px; }
 .nosotros__cierre strong { max-width: 760px; font-size: clamp(44px, 5.2vw, 70px); line-height: .92; }
 
-/* The sticky header needs an opaque full-width backdrop so scrolling content never shows around it. */
 body::before {
     content: "";
     position: fixed;
@@ -27,14 +26,14 @@ body::before {
 }
 .cabecera { isolation: isolate; }
 
-/* Project shelf: horizontal inside its own viewport, never the page. */
+/* Project shelf: show a deliberate slice of the next card as the scroll cue. */
 #proyectos { overflow: hidden; }
 #proyectos .proyectos {
     display: flex;
     gap: 16px;
     width: 100%;
     margin-right: 0;
-    padding: 0 0 18px;
+    padding: 8px 0 18px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x proximity;
@@ -43,7 +42,8 @@ body::before {
 }
 #proyectos .proyectos::-webkit-scrollbar { display: none; }
 #proyectos .proyecto {
-    flex: 0 0 clamp(300px, 30vw, 390px);
+    flex: 0 0 calc((100% - 32px) / 3.28);
+    min-width: 290px;
     scroll-snap-align: start;
 }
 #proyectos .proyecto:hover { transform: translateY(-6px); }
@@ -51,7 +51,7 @@ body::before {
 @media (max-width: 1100px) {
     .miembro--woki .miembro__texto { max-width: 360px; }
     .miembro--woki .woki-team-rig { width: min(24vw, 250px); }
-    #proyectos .proyecto { flex-basis: clamp(290px, 42vw, 360px); }
+    #proyectos .proyecto { flex-basis: calc((100% - 16px) / 2.35); }
 }
 
 @media (max-width: 900px) {
@@ -59,7 +59,7 @@ body::before {
     .miembro--woki .miembro__texto { max-width: 310px; padding-right: 0; }
     .miembro--woki .woki-team-rig { width: min(27vw, 220px); }
     #proyectos .proyectos { display: flex; }
-    #proyectos .proyecto { min-height: 300px; flex-basis: min(72vw, 340px); }
+    #proyectos .proyecto { min-height: 300px; flex-basis: 72%; min-width: 280px; }
 }
 
 @media (max-width: 700px) {
@@ -88,8 +88,8 @@ body::before {
     h1 { font-size: clamp(46px,15vw,68px); }
     .entradilla { font-size: 15px; }
     .seccion { padding: 68px 0; }
-    #proyectos .proyectos { width: 100%; margin-right: 0; padding-right: 0; scroll-snap-type: x mandatory; }
-    #proyectos .proyecto { flex-basis: min(82vw, 330px); min-height: 280px; }
+    #proyectos .proyectos { width: 100%; margin-right: 0; padding: 8px 0 18px; scroll-snap-type: x mandatory; }
+    #proyectos .proyecto { flex-basis: 84%; min-width: 0; min-height: 280px; }
     .dos-columnas h2 { font-size: 44px; }
     .filosofia__cabecera { grid-template-columns: 1fr; gap: 46px; margin-top: 34px; padding-bottom: 62px; }
     .filosofia__izquierda h2 { font-size: 46px; }
