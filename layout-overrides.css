@@ -13,6 +13,20 @@
 .nosotros__cierre { display: block; padding: 54px 0 18px; }
 .nosotros__cierre strong { max-width: 760px; font-size: clamp(44px, 5.2vw, 70px); line-height: .92; }
 
+/* The sticky header needs an opaque full-width backdrop so scrolling content never shows around it. */
+body::before {
+    content: "";
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    background: var(--papel);
+    pointer-events: none;
+}
+.cabecera { isolation: isolate; }
+
 /* Project shelf: horizontal inside its own viewport, never the page. */
 #proyectos { overflow: hidden; }
 #proyectos .proyectos {
@@ -49,6 +63,7 @@
 }
 
 @media (max-width: 700px) {
+    body::before { height: 72px; }
     .cabecera, main, footer { width: min(100% - 36px, 1240px); }
     .cabecera { min-height: 72px; padding: 0; z-index: 100; }
     .marca { font-size: 20px; }
