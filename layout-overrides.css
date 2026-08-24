@@ -13,6 +13,25 @@
 .nosotros__cierre { display: block; padding: 54px 0 18px; }
 .nosotros__cierre strong { max-width: 760px; font-size: clamp(44px, 5.2vw, 70px); line-height: .92; }
 
+.apoyo__contenido {
+    display: grid;
+    grid-template-columns: minmax(300px, .95fr) minmax(360px, 1.05fr);
+    gap: clamp(48px, 9vw, 120px);
+    align-items: start;
+    margin-top: 52px;
+}
+.apoyo__contenido h2 {
+    max-width: 11ch;
+    margin: 0;
+    font-size: clamp(44px, 5.2vw, 70px);
+    line-height: .94;
+    letter-spacing: -.055em;
+}
+.apoyo__contenido h2 em { color: var(--morado); font-style: normal; }
+.apoyo__texto { max-width: 610px; font-size: 15px; line-height: 1.85; }
+.apoyo__texto p:first-child { margin-top: 0; }
+.apoyo__texto .boton { margin-top: 22px; }
+
 body::before {
     content: "";
     position: fixed;
@@ -60,6 +79,7 @@ body::before {
     .miembro--woki .woki-team-rig { width: min(27vw, 220px); }
     #proyectos .proyectos { display: flex; }
     #proyectos .proyecto { min-height: 300px; flex-basis: 72%; min-width: 280px; }
+    .apoyo__contenido { grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); gap: 48px; }
 }
 
 @media (max-width: 700px) {
@@ -119,6 +139,9 @@ body::before {
     .nosotros__cierre { display: block; margin-top: 0; padding: 42px 0 18px; }
     .nosotros__cierre strong { font-size: clamp(40px,13vw,52px); }
     .nosotros__cierre p { margin: 0; }
+    .apoyo__contenido { grid-template-columns: 1fr; gap: 34px; margin-top: 34px; }
+    .apoyo__contenido h2 { font-size: 46px; }
+    .apoyo__texto { font-size: 14px; }
     footer { grid-template-columns: 1fr; padding-bottom: 50px; }
 }
 
