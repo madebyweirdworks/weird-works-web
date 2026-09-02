@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://weirdworks.cc/sitemap.xml
